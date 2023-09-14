@@ -1,0 +1,65 @@
+*center-comment* tiny plugin to centre comments in vim
+                                                                 *CenterComment*
+==============================================================================
+
+                              Center Comment
+
+A very small vim plugin (which used to be part of my `.vimrc` file) used to
+align comments centrally:
+
+Installation                                              *CenterCommentInstall*
+==============================================================================
+
+Install with your favourite vim/neovim package manager.
+
+Usage                                                       *CenterCommentUsage*
+==============================================================================
+
+Running the following command on a line containing `example comment string`:
+
+>vim
+:CenterComment ~
+<
+
+...will produce the following:
+
+>sh
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~ EXAMPLE COMMENT STRING ~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+<
+
+If you omit the `~` there will be default blank space between the comment string
+and the text you want to center. You can use any character in place of the
+tilde, but it will probably not work well with multiple characters used.
+
+Mapping                                                   *CenterCommentMapping*
+==============================================================================
+
+You can define a keybinding for a certain version like any other command...
+
+>vim
+nn <leader>c- :CenterComment -<cr>
+<
+
+Or...
+
+>lua
+vim.keymap.set("n", "<leader>c-", ":CenterComment -<cr>")
+<
+
+Change text width                                           *CenterCommentWidth*
+==============================================================================
+
+Width of the comment is set in the following precedence:
+
+- textwidth
+- colorcolumn
+- default (80 chars)
+
+>html
+Before textwidth set
+<!--                       A NORMAL, 80 CHAR COMMENT                         -->
+After textwidth set
+<!--            A 50 CHAR COMMENT              -->
+<
+
+ vim:tw=78:et:ft=help:norl:

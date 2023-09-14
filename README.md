@@ -39,6 +39,20 @@ If you omit the `~` there will be default blank space between the comment string
 and the text you want to center. You can use any character in place of the
 tilde, but it will probably not work well with multiple characters used.
 
+### Mapping
+
+You can define a keybinding for a certain version like any other command!
+
+```vimrc
+nn <leader>c- :CenterComment -<cr>
+```
+
+Or...
+
+```lua
+vim.keymap.set("n", "<leader>c-", ":CenterComment -<cr>")
+```
+
 ### Change text width
 
 Width of the comment is set in the following precedence:
@@ -70,9 +84,6 @@ fun! example() abort
   en
 endfun
 ```
-
-So yep, that was a mistake but not enough to change it (and I've kept using it
-because *a.* I've come this far with it and *b.* consistency).
 
 ## License
 
