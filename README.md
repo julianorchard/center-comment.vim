@@ -11,8 +11,7 @@ align comments centrally:
 
 - Capitalise text in comment string
 - Use any character to *highlight* the comment (see [Usage](#usage) examples)
-- Change the width of your comment char by either setting `textwidth` or
-  `colorcolumn` (in that order of precedence)
+- Change the width of your comment char (see [Change text width](#change-text-width))
 - ~~Deal with multi-line comments~~
 - ~~Deal with comments longer than 75 chars~~
 - ~~Multiple character highlight chars~~
@@ -53,20 +52,33 @@ Or...
 vim.keymap.set("n", "<leader>c-", ":CenterComment -<cr>")
 ```
 
+There is also a [useful Lua function](examples/useful-function.lua) to remap all
+values, so (for example) `<leader>ccX` (where `X` is any other character) will
+call `:CenterComment X`.
+
 ### Change text width
 
 Width of the comment is set in the following precedence:
 
-- textwidth
-- colorcolumn
-- default (80 chars)
+- Setting the `g:center_comment_width` global variable
+    - Lua equivalent is `vim.g.center_comment_width = 50`
+- `textwidth`
+    - Example `:se tw=50`
+- `colorcolumn`
+    - Example `:se cc=50`
+    - Always takes the first `colorcolumn` value provided (colour column can be
+      a list of values)
+- Default (80 chars)
 
-```html
-Before textwidth set
-<!--                       A NORMAL, 80 CHAR COMMENT                         -->
-After textwidth set
-<!--            A 50 CHAR COMMENT              -->
-```
+### Further customisation
+
+There are a few other variables which can be used to customise the functionality
+of this plugin. Here are the default values:
+
+| Variable                            | Description                                                                                   | Default |
+| ---                                 | ---                                                                                           | ---     |
+| `center_comment_uppercase`          | Whether or not output comment should be uppercase                                             | `true`  |
+| `center_comment_disable_mirror_end` | Whether or not to append any line with a single comment character with another (mirroring it) | `true`  |
 
 ## Disclaimer
 
@@ -84,6 +96,9 @@ fun! example() abort
   en
 endfun
 ```
+
+Although I've made changes to it since then, this hasn't changed... I should
+probably change it but I've stuck with it for the fun.
 
 ## License
 
