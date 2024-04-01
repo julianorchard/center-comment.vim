@@ -75,9 +75,10 @@ Width of the comment is set in the following precedence:
 There are a few other variables which can be used to customise the functionality
 of this plugin. Here are the default values:
 
-| Variable                   | Description                                       | Default |
-| ---                        | ---                                               | ---     |
-| `center_comment_uppercase` | Whether or not output comment should be uppercase | `true`  |
+| Variable                            | Description                                                                                   | Default |
+| ---                                 | ---                                                                                           | ---     |
+| `center_comment_uppercase`          | Whether or not output comment should be uppercase                                             | `true`  |
+| `center_comment_disable_mirror_end` | Whether or not to append any line with a single comment character with another (mirroring it) | `true`  |
 
 ## Disclaimer
 
