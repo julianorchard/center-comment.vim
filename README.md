@@ -52,7 +52,7 @@ Or...
 vim.keymap.set("n", "<leader>c-", ":CenterComment -<cr>")
 ```
 
-There is also a [useful Lua function](examples/useful_function.lua) to remap all
+There is also a [useful Lua function](examples/useful-function.lua) to remap all
 values, so (for example) `<leader>ccX` (where `X` is any other character) will
 call `:CenterComment X`.
 
